@@ -1,7 +1,7 @@
-package com.senai.gerenciamentoalunos.controller;
+package br.com.fullstack.gerenciamentoescolar.controller;
 
-import com.senai.gerenciamentoalunos.model.AlunoModel;
-import com.senai.gerenciamentoalunos.service.AlunoService;
+import br.com.fullstack.gerenciamentoescolar.model.AlunoModel;
+import br.com.fullstack.gerenciamentoescolar.service.AlunoService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

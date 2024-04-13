@@ -1,4 +1,4 @@
-package com.senai.gerenciamentoalunos.model;
+package br.com.fullstack.gerenciamentoescolar.model;
 
 import lombok.AccessLevel;
 import lombok.Data;
@@ -29,6 +29,15 @@ public class AlunoModel {
         aluno.id = getProximoId();
         alunos.add(aluno);
         return aluno;
+    }
+
+    public static AlunoModel buscarPorId(Integer id) throws Exception{
+        for (AlunoModel aluno : alunos){
+            if ( aluno.getId().equals(id)){
+                return aluno;
+            }
+        }
+        throw new Exception("Aluno não encontrado");
     }
 
 }

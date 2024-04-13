@@ -1,6 +1,7 @@
-package com.senai.gerenciamentoalunos.service;
+package br.com.fullstack.gerenciamentoescolar.service;
 
-import com.senai.gerenciamentoalunos.model.AlunoModel;
+import br.com.fullstack.gerenciamentoescolar.model.AlunoModel;
+import br.com.fullstack.gerenciamentoescolar.model.CursoModel;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +11,10 @@ public class AlunoService {
 
     public List<AlunoModel> buscarAlunos(){
         return AlunoModel.getAlunos();
+    }
+
+    public AlunoModel buscarPorId(Integer id) throws Exception{
+        return AlunoModel.buscarPorId(id);
     }
 
     public AlunoModel salvar(AlunoModel aluno) throws Exception {
@@ -29,4 +34,6 @@ public class AlunoService {
         }
         return true;
     }
+
+
 }

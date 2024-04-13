@@ -1,7 +1,8 @@
-package com.senai.gerenciamentoalunos.controller;
+package br.com.fullstack.gerenciamentoescolar.controller;
 
-import com.senai.gerenciamentoalunos.model.CursoModel;
-import com.senai.gerenciamentoalunos.service.CursoService;
+import br.com.fullstack.gerenciamentoescolar.model.AlunoModel;
+import br.com.fullstack.gerenciamentoescolar.model.CursoModel;
+import br.com.fullstack.gerenciamentoescolar.service.CursoService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +25,11 @@ public class CursoController {
     @PostMapping
     public CursoModel post(@RequestBody CursoModel curso) throws Exception {
         return cursoService.salvar(curso);
+    }
+
+    @PostMapping("{id}/add-aluno")
+    public CursoModel post(@PathVariable Integer id, @RequestBody AlunoModel aluno) throws Exception {
+        return cursoService.matricularAluno(id, aluno.getId());
     }
 
 }

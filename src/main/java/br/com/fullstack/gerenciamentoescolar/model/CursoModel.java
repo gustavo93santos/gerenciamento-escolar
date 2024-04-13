@@ -1,4 +1,4 @@
-package com.senai.gerenciamentoalunos.model;
+package br.com.fullstack.gerenciamentoescolar.model;
 
 import lombok.AccessLevel;
 import lombok.Data;
@@ -22,6 +22,8 @@ public class CursoModel {
     private String descricao;
     private Integer cargaHoraria;
 
+    private List<AlunoModel> alunosMatriculados = new ArrayList<>();
+
     private static Integer getProximoId(){
         return proximoId++;
     }
@@ -30,5 +32,18 @@ public class CursoModel {
         curso.id = getProximoId();
         cursos.add(curso);
         return curso;
+    }
+
+    public static void matricular(CursoModel curso, AlunoModel aluno){
+        curso.getAlunosMatriculados().add(aluno);
+    }
+
+    public static CursoModel buscarPorId(Integer id) throws Exception{
+        for (CursoModel curso : cursos){
+            if ( curso.getId().equals(id)){
+                return curso;
+            }
+        }
+        throw new Exception("Curso não encontrado");
     }
 }
